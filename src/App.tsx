@@ -1,8 +1,8 @@
 import React from "react";
-import ComingSoon from "./components/ComingSoon";
+import Portfolio from "./components/Portfolio";
 
 function App() {
-  return <ComingSoon />;
+  return <Portfolio />;
 }
 
 export default App;
