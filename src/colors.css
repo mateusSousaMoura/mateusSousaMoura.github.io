@@ -1,0 +1,200 @@
+/*
+  Color system (tokens) based on HSV intent.
+  We keep HSV notes in comments and convert to CSS-friendly HSL values.
+
+  Main accents (HSV center values):
+  - Tangerine:  h=24,  s=92%, v=92%   (approx HSL: 24, 90%, 54%)
+  - Turquoise:  h=176, s=78%, v=68%   (approx HSL: 176, 70%, 48%)
+  - Navy:       h=220, s=65%, v=36%   (approx HSL: 220, 55%, 24%)
+
+  Light mode:
+  - bg-main: very light warm white
+  - bg-foreground: subtle off-white for cards
+  - text-main: near black
+  - text-muted: medium gray
+
+  Dark mode (on [data-theme="dark"]):
+  - bg-main: near black
+  - bg-foreground: dark gray (card background)
+  - text-main: very light gray
+  - text-muted: light gray (less prominent)
+
+  Utility classes map these tokens to simple class names used in components.
+*/
+
+:root {
+  /* Light theme tokens (HSL approximations from HSV notes) */
+  --bg-main: hsl(0 0% 98%); /* almost white */
+  --bg-foreground: hsl(0 0% 96%); /* secondary white */
+  --text-main: hsl(0 0% 8%); /* near black */
+  --text-muted: hsl(0 0% 45%); /* mid gray for less important text */
+  --border-muted: hsl(0 0% 86%);
+
+  /* Accents (primary hues, multiple variants below) */
+  --accent-tangerine: hsl(24 90% 54%); /* HSV 24,92,92 */
+  --accent-tangerine-50: hsl(24 95% 68%);
+  --accent-tangerine-30: hsl(24 85% 40%);
+
+  --accent-turquoise: hsl(176 70% 48%); /* HSV 176,78,68 */
+  --accent-turquoise-60: hsl(176 60% 60%);
+  --accent-turquoise-30: hsl(176 55% 36%);
+
+  --accent-navy: hsl(220 55% 24%); /* HSV 220,65,36 */
+  --accent-navy-40: hsl(220 45% 18%);
+  --accent-navy-60: hsl(220 35% 36%);
+
+  /* decorative accent (single-accent radial for blobs) */
+  --blob-accent: radial-gradient(circle at 30% 30%, var(--accent-tangerine-50), transparent 40%);
+}
+
+[data-theme="dark"] {
+  /* Dark theme tokens */
+  --bg-main: hsl(0 0% 6%); /* black-ish */
+  --bg-foreground: hsl(0 0% 12%); /* card background */
+  --text-main: hsl(0 0% 92%); /* very light gray */
+  --text-muted: hsl(0 0% 64%); /* lighter gray for muted text */
+  --border-muted: hsl(0 0% 18%);
+
+  /* accents slightly desaturated/darker for dark backgrounds */
+  --accent-tangerine: hsl(24 80% 48%);
+  --accent-tangerine-50: hsl(24 75% 60%);
+  --accent-tangerine-30: hsl(24 65% 32%);
+
+  --accent-turquoise: hsl(176 60% 42%);
+  --accent-turquoise-60: hsl(176 50% 52%);
+  --accent-turquoise-30: hsl(176 45% 30%);
+
+  --accent-navy: hsl(220 45% 16%);
+  --accent-navy-40: hsl(220 35% 12%);
+  --accent-navy-60: hsl(220 30% 28%);
+
+  --blob-accent: radial-gradient(circle at 30% 30%, var(--accent-tangerine-50), transparent 40%);
+}
+
+/* Semantic utility classes (simple, used together with Tailwind layout classes) */
+.bg-main { background-color: var(--bg-main) !important; }
+.bg-foreground { background-color: var(--bg-foreground) !important; }
+.text-main { color: var(--text-main) !important; }
+.text-muted { color: var(--text-muted) !important; }
+.border-muted { border-color: var(--border-muted) !important; }
+
+.card {
+  background-color: var(--bg-foreground);
+  border: 1px solid var(--border-muted);
+  color: var(--text-main);
+}
+
+.btn-accent {
+  background: var(--gradient-accent);
+  color: white;
+}
+
+.gradient-accent {
+  background-image: var(--blob-accent);
+  background-size: 300% 300%;
+}
+
+/* small helpers used in components */
+.accent-tangerine { color: var(--accent-tangerine) !important; }
+.accent-turquoise { color: var(--accent-turquoise) !important; }
+.accent-navy { color: var(--accent-navy) !important; }
+
+/* text gradient helper (requires bg-clip-text usage in components) */
+.text-gradient { background-image: linear-gradient(90deg, var(--accent-turquoise), var(--accent-navy)); background-size:200% 200%; -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* subtle box shadow for dark cards to lift them slightly */
+.card-shadow { box-shadow: 0 6px 20px rgba(2,6,23,0.25); }
+
+/* small accessible focus state for buttons/links */
+.focus-ring:focus { outline: 3px solid rgba(255,255,255,0.06); outline-offset: 2px; }
+/* Color design tokens (HSV described, approximated with HSL for CSS)
+   - Light mode: two white tones for background/foreground, black for text, muted greys
+   - Dark mode: deep black background, slightly lighter foreground, light greys for text/muted
+   - Accents: Tangerine, Turquoise, Navy (HSV base + variations)
+
+   Notes: CSS doesn't support HSV natively in all browsers, HSL approximations used.
+   Toggle dark mode by setting `data-theme="dark"` on <html> or <body>.
+*/
+
+:root {
+  /* Light mode (designed from HSV -> HSL approximations) */
+  --bg-main: hsl(0 0% 98%);          /* very light background (white tone 1) */
+  --bg-foreground: hsl(0 0% 94%);    /* slightly darker white (white tone 2) */
+  --text-main: hsl(0 0% 6%);         /* nearly black for main text */
+  --text-muted: hsl(0 0% 46%);       /* muted grey for less relevant text */
+  --border-muted: hsl(0 0% 86%);
+
+  /* Accent palette (HSV base -> HSL approximation) */
+  /* Tangerine (HSV ~ 24°, 90%, 95%) */
+  --accent-tangerine: hsl(28 90% 57%);
+  --accent-tangerine-60: hsl(28 75% 65%);
+  --accent-tangerine-30: hsl(28 85% 40%);
+
+  /* Turquoise (HSV ~ 175°, 75%, 65%) */
+  --accent-turquoise: hsl(176 75% 46%);
+  --accent-turquoise-60: hsl(176 60% 60%);
+  --accent-turquoise-30: hsl(176 60% 34%);
+
+  /* Navy (HSV ~ 220°, 60%, 25%) */
+  --accent-navy: hsl(220 60% 26%);
+  --accent-navy-60: hsl(220 45% 36%);
+  --accent-navy-30: hsl(220 35% 16%);
+
+  /* Utility alpha helpers (use via rgba if needed) */
+  --overlay-50: rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] {
+  /* Dark mode */
+  --bg-main: hsl(0 0% 6%);           /* nearly black */
+  --bg-foreground: hsl(0 0% 12%);    /* slightly lighter panel */
+  --text-main: hsl(0 0% 92%);        /* very light gray for text */
+  --text-muted: hsl(0 0% 64%);       /* light gray for muted text */
+  --border-muted: hsl(0 0% 18%);
+
+  /* Accents - slightly desaturated/darker for dark UI */
+  --accent-tangerine: hsl(28 80% 50%);
+  --accent-tangerine-60: hsl(28 70% 40%);
+  --accent-tangerine-30: hsl(28 60% 30%);
+
+  --accent-turquoise: hsl(176 65% 40%);
+  --accent-turquoise-60: hsl(176 55% 32%);
+  --accent-turquoise-30: hsl(176 45% 24%);
+
+  --accent-navy: hsl(220 50% 18%);
+  --accent-navy-60: hsl(220 40% 12%);
+  --accent-navy-30: hsl(220 30% 9%);
+}
+
+/* Semantic utility classes to use in JSX (keeps Tailwind utilities for layout)
+   - No mixed-brand gradients as requested. Each brand color has single-accent classes.
+   - Color meanings:
+     * --accent-tangerine: "Action" — used for primary CTAs, important highlights.
+     * --accent-turquoise: "Inform" — used for informative badges, links, and subtle accents.
+     * --accent-navy: "Trust" — used for strong anchors, headings, and emphasis.
+*/
+.bg-main { background-color: var(--bg-main) !important; }
+.bg-foreground { background-color: var(--bg-foreground) !important; }
+.text-main { color: var(--text-main) !important; }
+.text-muted { color: var(--text-muted) !important; }
+.border-muted { border-color: var(--border-muted) !important; }
+
+.accent-tangerine { background-color: var(--accent-tangerine) !important; color: white; }
+.accent-tangerine--soft { background-color: var(--accent-tangerine-60) !important; color: white; }
+.accent-tangerine--dark { background-color: var(--accent-tangerine-30) !important; color: white; }
+
+.accent-turquoise { background-color: var(--accent-turquoise) !important; color: white; }
+.accent-turquoise--soft { background-color: var(--accent-turquoise-60) !important; color: white; }
+.accent-turquoise--dark { background-color: var(--accent-turquoise-30) !important; color: white; }
+
+.accent-navy { background-color: var(--accent-navy) !important; color: white; }
+.accent-navy--soft { background-color: var(--accent-navy-60) !important; color: white; }
+.accent-navy--dark { background-color: var(--accent-navy-30) !important; color: white; }
+
+.btn-accent { background-color: var(--accent-tangerine); color: white !important; }
+
+.card { background-color: var(--bg-foreground); border: 1px solid var(--border-muted); }
+
+/* small helpers */
+.muted-bg { background-color: var(--border-muted); }
+.text-invert { color: var(--bg-main); }
