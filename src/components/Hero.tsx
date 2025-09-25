@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero: React.FC = () => {
   return (
-  <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-main text-main">
+  <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-main text-main">
       {/* Background animated elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-32 w-80 h-80 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float gradient-accent"></div>
@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed text-muted">
-            Desenvolvedor Full Stack apaixonado por criar experiências digitais incríveis
+            Desenvolvedor Full Stack com experiência em Spring Boot, Next.js e Ruby on Rails.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
