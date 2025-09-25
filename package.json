@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -r https://github.com/mateusSousaMoura/mateusSousaMoura.github.io.git",
+    "deploy": "gh-pages -d dist -b main -r https://github.com/mateusSousaMoura/mateusSousaMoura.github.io.git",
     "postbuild": "node scripts/copy-404.cjs"
   },
   "dependencies": {
