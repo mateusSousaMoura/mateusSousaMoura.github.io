@@ -13,6 +13,7 @@ const Hero: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 px-6 max-w-4xl mx-auto">
         <div className="text-center">
+        import panda from '../assets/panda-image.jpg';
         <div className="animate-fadeIn">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-main">
             Olá, eu sou
