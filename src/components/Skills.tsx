@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { SiReact, SiTypescript, SiNodedotjs, SiGit, SiPostgresql, SiNextdotjs, SiTailwindcss, SiSpring, SiRubyonrails, SiDocker } from 'react-icons/si';
+import { SiReact, SiTypescript, SiGit, SiPostgresql, SiNextdotjs, SiTailwindcss, SiSpring, SiRubyonrails, SiDocker } from 'react-icons/si';
 import AnimatedSection from "./ui/AnimatedSection";
 import AnimatedCard from "./ui/AnimatedCard";
 
@@ -19,7 +19,6 @@ const groups = [
     items: [
       { key: 'spring', label: 'Spring Boot', icon: SiSpring, color: '#6DB33F' },
       { key: 'rails', label: 'Ruby on Rails', icon: SiRubyonrails, color: '#CC0000' },
-      { key: 'node', label: 'Node.js', icon: SiNodedotjs, color: '#68A063' },
     ],
   },
   {

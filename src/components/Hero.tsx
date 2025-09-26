@@ -16,15 +16,6 @@ const Hero: React.FC = () => {
           animate={{ opacity: 0.65, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
         />
-        {/* Dark mode image */}
-        <motion.img 
-          src="/cerejeira1-dark-3.png" 
-          alt="" 
-          className="absolute top-20 left-16 w-80 h-64 opacity-65 hidden dark:block"
-          initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-          animate={{ opacity: 0.65, scale: 1, rotate: 0 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-        />
       </div>
 
       {/* Content */}
