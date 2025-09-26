@@ -1,52 +1,64 @@
 import React from "react";
 
+// If you add 'src/assets/profile.jpg' you can import it here:
+// import profile from '../assets/profile.jpg';
+
 const About: React.FC = () => {
   return (
-  <section id="about" className="py-20 px-6 bg-main text-main">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+  <section id="about" className="py-12 px-4 bg-main text-main">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-main">
             Sobre Mim
           </h2>
           <div className="w-20 h-1 gradient-accent mx-auto"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="space-y-4">
             <p className="text-lg leading-relaxed text-muted">
-              Sou um desenvolvedor apaixonado por tecnologia com experiência em criar soluções 
-              digitais modernas e eficientes. Especializado em desenvolvimento full stack, 
-              sempre busco aprender novas tecnologias e melhorar minhas habilidades.
+              Bacharel em Ciência da Computação com experiência em desenvolvimento full-stack, focado na criação e otimização
+              de sistemas para os setores público e corporativo. Proficiente em tecnologias como Spring Boot, Ruby on Rails e
+              Next.js para construir aplicações e APIs robustas e escaláveis.
             </p>
             
             <p className="text-lg leading-relaxed text-muted">
-              Minha jornada na programação começou há alguns anos e desde então tenho 
-              trabalhado em diversos projetos, desde aplicações web até sistemas complexos. 
-              Acredito que a tecnologia pode transformar ideias em realidade.
+               Possuo sólida compreensão de todo o ciclo de vida do desenvolvimento de software, desde o levantamento de requisitos
+                até a implantação e manutenção. Busco ativamente oportunidades para aplicar minhas habilidades na resolução de problemas
+               complexos, gerando impacto e eficiência.
             </p>
-
-            <div className="grid grid-cols-2 gap-6 mt-8">
-              <div className="text-center p-6 card rounded-lg transition-colors duration-300">
-                <div className="text-3xl font-bold mb-2 text-main accent-tangerine">15+</div>
-                <div className="text-muted">Projetos</div>
-              </div>
-              <div className="text-center p-6 card rounded-lg transition-colors duration-300">
-                <div className="text-3xl font-bold mb-2 text-main accent-turquoise">2+</div>
-                <div className="text-muted">Anos de Experiência</div>
-              </div>
-            </div>
           </div>
 
-          <div className="relative">
-            <div className="w-80 h-80 mx-auto relative">
-              {/* Avatar placeholder - you can replace with actual image later */}
-              <div className="w-full h-full rounded-full flex items-center justify-center text-6xl font-bold text-invert shadow-2xl accent-tangerine--soft">
-                MM
+          <div className="relative w-full flex justify-center lg:justify-end">
+            <div className="w-[26rem] h-[26rem] lg:w-[32rem] lg:h-[32rem] relative">
+              {/* Profile image */}
+              <div className="w-full h-full rounded-full overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-pointer group" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
+                <img 
+                  src="/profile.jpg" 
+                  alt="profile" 
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
+                  style={{ 
+                    imageRendering: 'auto',
+                    transform: 'translateZ(0)',
+                    backfaceVisibility: 'hidden',
+                    WebkitFontSmoothing: 'antialiased'
+                  }}
+                />
               </div>
-              
+
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-60 animate-float gradient-accent" style={{ filter: 'blur(6px)' }}></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full opacity-60 animate-float gradient-accent" style={{ animationDelay: '1s', filter: 'blur(4px)' }}></div>
+              <img 
+                src="/bamboo-3.png" 
+                alt="" 
+                className="absolute -top-8 -right-8 w-24 h-32 opacity-20 animate-float mix-blend-multiply"
+                style={{ animationDelay: '0s' }}
+              />
+              <img 
+                src="/bamboo-4.png" 
+                alt="" 
+                className="absolute -bottom-6 -left-6 w-20 h-28 opacity-15 animate-float mix-blend-multiply"
+                style={{ animationDelay: '1.5s' }}
+              />
             </div>
           </div>
         </div>

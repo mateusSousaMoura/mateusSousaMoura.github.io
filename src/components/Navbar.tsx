@@ -7,6 +7,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center space-x-4">
           <a href="#home" className="text-main font-bold">Início</a>
           <a href="#about" className="text-muted hover:text-main transition">Sobre</a>
+          <a href="#skills" className="text-muted hover:text-main transition">Stack</a>
           <a href="#projects" className="text-muted hover:text-main transition">Projetos</a>
           <a href="#contact" className="text-muted hover:text-main transition">Contatos</a>
         </div>

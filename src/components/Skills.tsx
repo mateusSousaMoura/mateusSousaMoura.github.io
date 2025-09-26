@@ -36,17 +36,18 @@ const groups = [
 
 const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-20 px-6 bg-main text-main">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+    <section id="skills" className="py-12 px-4 bg-main text-main relative overflow-hidden">
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-main">Minha Stack</h2>
           <div className="w-20 h-1 gradient-accent mx-auto"></div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {groups.map((group) => (
-            <div key={group.name} className="p-4">
-              <div className="grid" style={{ gridTemplateColumns: '35% 1fr', gap: '1rem', alignItems: 'start' }}>
+            <div key={group.name} className="p-2">
+              <div className="grid" style={{ gridTemplateColumns: '30% 1fr', gap: '1.5rem', alignItems: 'start' }}>
                 <div>
                   <h3 className="text-3xl md:text-4xl font-semibold mb-2 text-main">{group.name}</h3>
                 </div>
